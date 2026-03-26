@@ -1,0 +1,18 @@
+{
+  "name": "equalizer",
+  "description": "Equalizer platform plugin — analytics tools, skills, and agents for ABF transaction analysis",
+  "version": "1.0.0",
+  "author": {
+    "name": "Equalizer"
+  },
+  "homepage": "https://github.com/CardoAI/equalizer-plugin",
+  "repository": "https://github.com/CardoAI/equalizer-plugin",
+  "license": "MIT",
+  "keywords": [
+    "equalizer",
+    "analytics",
+    "abf",
+    "structured-finance",
+    "stratification"
+  ]
+}
