@@ -23,7 +23,7 @@ Every sentence either presents data or interprets it. No preamble, no filler.
 Multiple tenants are configured as separate MCP server entries. Each tenant's tools are prefixed with the tenant name (e.g., `mcp__equalizer_tenant_1__list_spvs`).
 
 **Before any tool call:**
-1. Ask the user which tenant they are working with
+1. If the user has not identified a tenant, ask which tenant they are working with. If the tenant is already clear from context, confirm it briefly and proceed.
 2. Once identified, use ONLY tools prefixed with that tenant name for the rest of the session
 3. If the user switches tenants, acknowledge and switch the tool prefix
 
@@ -117,8 +117,8 @@ Call `list_template_analytics(spv_id="...")` and `list_spv_views(spv_id="...")`.
 |---|---|
 | Portfolio Overview | outstanding balance, loan count, weighted average metrics |
 | Credit Performance | delinquency, DPD, days past due, days in delay |
-| Losses | default, loss, charge-off, write-off |
-| Prepayment | prepayment, CPR, SMM, early repayment |
+| Loss Vintage Analysis | default, loss, charge-off, write-off |
+| Prepayment Vintage Analysis | prepayment, CPR, SMM, early repayment |
 | Concentration | geographic, state, FICO distribution, concentration |
 
 ### Step 2: Present Scope & Get Confirmation
@@ -167,7 +167,7 @@ Key Findings & Risk Assessment only references data from delivered blocks. If se
 **Losses:** Identify the term at which defaults accelerate (the "elbow"). Cross-reference defaults by segment. Flag any segment where default share exceeds portfolio share.
 
 **Prepayment:** Cross-reference prepayment by FICO to detect adverse selection. Compute derived metrics:
-- **SMM:** `1 - (1 - CumulativePrepayment)^(1/Term)`
+- **SMM:** `1 - (1 - CumPrepay)^(1/Term)`
 - **CPR:** `1 - (1 - SMM)^12`
 - Project composition drift at 3, 6, 9, 12 months using segment-specific SMM
 
