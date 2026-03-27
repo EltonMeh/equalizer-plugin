@@ -1,86 +1,22 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "equalizer-marketplace",
+  "description": "Analytics tools, skills, and agents for ABF transaction analysis on the Equalizer platform",
   "owner": {
     "name": "Elton Mehmeti",
     "email": "elton.mehmeti@cardoai.com"
   },
   "plugins": [
     {
-      "name": "Equalizer",
-      "id": "equalizer-plugin",
-      "version": "1.0.0",
+      "name": "equalizer-plugin",
       "description": "Analytics tools, skills, and agents for ABF transaction analysis on the Equalizer platform",
-      "longDescription": "Equalizer Plugin for Claude Code provides comprehensive analytics and data access for the Equalizer platform. Access transaction data, run curated analytics, and generate professional reports using Claude Code's AI-powered interface.\n\nFeatures:\n- MCP Server connections to all Equalizer tenant environments\n- 7 tools per tenant: SPV search, analytics discovery, data retrieval, stratification views, and URL generation\n- Specialized analytics skill for KPI analysis and comprehensive reporting\n- Multi-step analytics agent for complex transaction analysis\n- OAuth2/OIDC authentication via Keycloak\n- Support for cross-SPV comparisons and filtered queries",
-      "homepage": "https://github.com/EltonMeh/equalizer-plugin",
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/EltonMeh/equalizer-plugin.git"
-      },
-      "license": "MIT",
-      "keywords": [
-        "equalizer",
-        "analytics",
-        "abf",
-        "structured-finance",
-        "stratification",
-        "transaction-analysis",
-        "mcp",
-        "claude-code"
-      ],
       "category": "data-analytics",
-      "tags": [
-        "analytics",
-        "finance",
-        "mcp-server",
-        "skill",
-        "agent"
-      ],
-      "features": [
-        "MCP Server with 7 tools per tenant",
-        "Analytics skill for KPI queries and reports",
-        "Specialized multi-step analytics agent",
-        "SPV lookup and disambiguation",
-        "Stratification view data retrieval",
-        "Cross-SPV comparison",
-        "Advanced filtering capabilities",
-        "CSV data export",
-        "OAuth2/OIDC authentication"
-      ],
-      "requirements": {
-        "min_claude_code_version": "1.0.0",
-        "node_version": "18.0.0",
-        "platforms": ["linux", "macos", "windows"]
+      "source": {
+        "source": "url",
+        "url": "https://github.com/EltonMeh/equalizer-plugin.git",
+        "sha": "8a5153018400972b3a7a3e562a1ba43446e3d671"
       },
-      "installation": {
-        "method": "github",
-        "url": "https://github.com/EltonMeh/equalizer-plugin",
-        "command": "claude plugin install https://github.com/EltonMeh/equalizer-plugin"
-      },
-      "documentation": {
-        "readme": "README.md",
-        "homepage": "https://github.com/EltonMeh/equalizer-plugin",
-        "issues": "https://github.com/EltonMeh/equalizer-plugin/issues"
-      },
-      "useCases": [
-        "Query specific KPI data from SPVs",
-        "Generate comprehensive transaction analysis reports",
-        "Compare credit performance across multiple SPVs",
-        "Analyze prepayment rates and stratification data",
-        "Filter and retrieve specific transaction subsets",
-        "Export data in CSV format for further analysis"
-      ],
-      "authentication": {
-        "type": "oauth2",
-        "provider": "keycloak",
-        "description": "Authenticate via Keycloak OAuth2/OIDC when first connecting to a tenant"
-      },
-      "status": "stable",
-      "rating": {
-        "score": 0,
-        "count": 0
-      },
-      "downloads": 0,
-      "createdAt": "2026-03-27T00:00:00Z",
-      "updatedAt": "2026-03-27T00:00:00Z"
+      "homepage": "https://github.com/EltonMeh/equalizer-plugin"
     }
   ]
 }
