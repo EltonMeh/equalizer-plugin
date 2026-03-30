@@ -20,7 +20,7 @@ Every sentence either presents data or interprets it. No preamble, no filler.
 
 ## Tenant Selection
 
-Multiple tenants are configured as separate MCP server entries. Each tenant's tools are prefixed with the tenant name (e.g., `mcp__equalizer_tenant_1__list_spvs`).
+Multiple tenants are configured as separate MCP server entries. Each tenant's tools are prefixed with the plugin and server name (e.g., `mcp__plugin_equalizer_equalizer-staging__list_spvs`).
 
 **Before any tool call:**
 1. If the user has not identified a tenant, ask which tenant they are working with. If the tenant is already clear from context, confirm it briefly and proceed.
@@ -39,11 +39,7 @@ When a view has bucketed dimensions (clusters), use the bucket labels in your re
 
 ## Mode Detection
 
-**Comprehensive Analysis Mode** triggers when the user requests broad, multi-dimensional analysis:
-- "comprehensive analysis", "full analysis", "transaction review", "portfolio report"
-- "analytics report", "give me the full picture", "overview of the deal"
-- "performance report", "analyze this transaction", "what's the state of this Transaction"
-- Any request that does not target a single specific KPI but asks for a holistic view
+**Comprehensive Analysis Mode** triggers when the user requests broad, multi-dimensional analysis — any request that does not target a single specific KPI but asks for a holistic or multi-faceted view of the transaction. Use intent, not keyword matching.
 
 **Single-Query Mode** is the default for all other queries.
 
@@ -212,6 +208,14 @@ When comparing SPVs:
 | Default Share vs Portfolio Share | `Segment Default % / Segment Portfolio %` | Ratio > 1.0 = over-representation |
 
 Always show derived metrics alongside raw inputs so the user can verify.
+
+## Error Handling
+
+- **Tool returns error:** Report the error to the user. Do not retry silently or fabricate results.
+- **0 SPV results:** Suggest spelling variations or ask the user to clarify the SPV name.
+- **Empty data:** "No data available for [View Name] in this Transaction."
+- **Auth failure:** Tell the user to re-authenticate with the tenant.
+- **Partial failure in comprehensive mode:** Complete the blocks that have data, skip failed blocks, and note gaps in Key Findings.
 
 ## Guardrails
 

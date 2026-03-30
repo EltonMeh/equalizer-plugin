@@ -1,14 +1,7 @@
 {
   "equalizer-staging": {
     "type": "http",
-    "url": "https://abf-backend.staging-internal.cardoaiapps.com/mcp/",
-    "oauth": {
-      "clientId": "abf"
-    }
-  },
-  "equalizer-local": {
-    "type": "http",
-    "url": "http://localhost:8000/mcp",
+    "url": "https://abf-backend.staging.cardoaiapps.com/mcp/",
     "oauth": {
       "clientId": "abf"
     }
